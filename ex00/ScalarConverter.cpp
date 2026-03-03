@@ -6,7 +6,7 @@
 /*   By: hnemmass <hnemmass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 21:54:11 by hnemmass          #+#    #+#             */
-/*   Updated: 2026/03/03 20:44:04 by hnemmass         ###   ########.fr       */
+/*   Updated: 2026/03/03 22:12:17 by hnemmass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,8 +121,11 @@ void print_int(const std::string &s)
 	
 	if (d >= 32 && d <= 126)
 		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+	else if ((d >= 0 && d <= 31) || (d >= 127 && d <= 255))
+		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: impossible" << std::endl;
+
 	std::cout << "int: " << static_cast<int>(d) << std::endl;
 	std::cout << "float: " << static_cast<float>(d) << ".0f" << std::endl;
 	std::cout << "double: " << static_cast<double>(d) << ".0" << std::endl;
@@ -132,26 +135,31 @@ void print_double(const std::string &s)
 {
 	char *end;
 	double d = std::strtod(s.c_str(), &end);
+	double intpart;
+	double fractpart = modf(d, &intpart);
 
 	if (d >= 32 && d <= 126)
 		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+	else if ((d >= 0 && d <= 31) || (d >= 127 && d <= 255))
+		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: impossible" << std::endl;
 
 
-	if (d > 2147483647 || d < -2147483648 || std::isnan(d)|| std::isinf(d))
+	if (d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min()
+		|| std::isnan(d)|| std::isinf(d))
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(d) << std::endl;
 
 
-	if (d == static_cast<int>(d))
+	if (d == static_cast<int>(d) || std::fabs(fractpart) < 1e-4)
 		std::cout << "float: " << static_cast<float>(d) << ".0f" << std::endl;
 	else
 		std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
 
 
-	if (d == static_cast<int>(d))
+	if (d == static_cast<int>(d) || std::fabs(fractpart) < 1e-4)
 		std::cout << "double: " << static_cast<double>(d) << ".0" << std::endl;
 	else
 		std::cout << "double: " << static_cast<double>(d) << std::endl;
@@ -161,26 +169,31 @@ void print_float(const std::string &s)
 {
 	char *end;
 	double d = std::strtod(s.c_str(), &end);
+	double intpart;
+	double fractpart = std::modf(d, &intpart);
 	
 	if (d >= 32 && d <= 126)
 		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+	else if ((d >= 0 && d <= 31) || (d >= 127 && d <= 255))
+		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: impossible" << std::endl;
 
 
-	if (d > 2147483647 || d < -2147483648 || std::isnan(d)|| std::isinf(d))
+	if (d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min()
+		|| std::isnan(d)|| std::isinf(d))
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(d) << std::endl;
 
 
-	if (d == static_cast<int>(d))
+	if (d == static_cast<int>(d) || std::fabs(fractpart) < 1e-4)
 		std::cout << "float: " << static_cast<float>(d) << ".0f" << std::endl;
 	else
 		std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
 
 
-	if (d == static_cast<int>(d))
+	if (d == static_cast<int>(d) || std::fabs(fractpart) < 1e-4)
 		std::cout << "double: " << static_cast<double>(d) << ".0" << std::endl;
 	else
 		std::cout << "double: " << static_cast<double>(d) << std::endl;
