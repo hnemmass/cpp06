@@ -1,8 +1,9 @@
-NAME = Serializer
+NAME = Identifier
 
 CXX = c++ -std=c++98 -Wall -Werror -Wextra
 
-SRC = Serializer.cpp main.cpp
+SRC = Base.cpp Generate.cpp Identify.cpp main.cpp
+INC = Base.hpp A.hpp B.hpp C.hpp Generate.hpp Identify.hpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -10,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CXX) $(OBJ) -o $(NAME)
 
-%.o: %.cpp Serializer.hpp
+%.o: %.cpp $(INC)
 	$(CXX) -c $< -o $@
 
 clean:

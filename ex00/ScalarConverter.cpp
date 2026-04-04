@@ -6,7 +6,7 @@
 /*   By: hnemmass <hnemmass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 21:54:11 by hnemmass          #+#    #+#             */
-/*   Updated: 2026/03/03 23:36:40 by hnemmass         ###   ########.fr       */
+/*   Updated: 2026/04/04 16:12:45 by hnemmass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,6 @@ void print_double(const std::string &s)
 {
 	char *end;
 	double d = std::strtod(s.c_str(), &end);
-	// double intpart;
-	// double fractpart = modf(d, &intpart);
 
 	if (d >= 32 && d <= 126)
 		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
@@ -153,24 +151,15 @@ void print_double(const std::string &s)
 		std::cout << "int: " << static_cast<int>(d) << std::endl;
 
 
-	// if (d == static_cast<int>(d) || std::fabs(fractpart) < 1e-4)
-	// 	std::cout << "float: " << static_cast<float>(d) << ".0f" << std::endl;
-	// else
-		std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+	std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
 
-
-	// if (d == static_cast<int>(d) || std::fabs(fractpart) < 1e-4)
-	// 	std::cout << "double: " << static_cast<double>(d) << ".0" << std::endl;
-	// else
-		std::cout << "double: " << static_cast<double>(d) << std::endl;
+	std::cout << "double: " << static_cast<double>(d) << std::endl;
 }
 
 void print_float(const std::string &s)
 {
 	char *end;
 	double d = std::strtod(s.c_str(), &end);
-	// double intpart;
-	// double fractpart = std::modf(d, &intpart);
 	
 	if (d >= 32 && d <= 126)
 		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
@@ -187,16 +176,9 @@ void print_float(const std::string &s)
 		std::cout << "int: " << static_cast<int>(d) << std::endl;
 
 
-	// if (d == static_cast<int>(d) || std::fabs(fractpart) < 1e-4)
-	// 	std::cout << "float: " << static_cast<float>(d) << ".0f" << std::endl;
-	// else
-		std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+	std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
 
-
-	// if (d == static_cast<int>(d) || std::fabs(fractpart) < 1e-4)
-	// 	std::cout << "double: " << static_cast<double>(d) << ".0" << std::endl;
-	// else
-		std::cout << "double: " << static_cast<double>(d) << std::endl;
+	std::cout << "double: " << static_cast<double>(d) << std::endl;
 }
 
 void ScalarConverter::convert(const std::string &s)

@@ -1,4 +1,4 @@
-NAME = ScalarConverter
+NAME = convert
 
 CXX = c++ -std=c++98 -Wall -Werror -Wextra
 
