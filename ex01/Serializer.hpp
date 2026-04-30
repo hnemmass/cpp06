@@ -6,7 +6,7 @@
 /*   By: hnemmass <hnemmass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 22:52:24 by hnemmass          #+#    #+#             */
-/*   Updated: 2026/04/03 16:55:07 by hnemmass         ###   ########.fr       */
+/*   Updated: 2026/04/04 18:17:29 by hnemmass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ struct Data
 {
 	static const int a = 0;
 	static const int b = 5;
-	static const char *c;
 };
 
 class Serializer
