@@ -6,7 +6,7 @@
 /*   By: hnemmass <hnemmass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 21:54:11 by hnemmass          #+#    #+#             */
-/*   Updated: 2026/04/04 16:12:45 by hnemmass         ###   ########.fr       */
+/*   Updated: 2026/05/14 15:44:05 by hnemmass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ int check_float(const std::string &s)
 	trim(ss);
 	std::strtod(ss.c_str(), &end);
 	
+	if (ss == "f")
+		return (1);
 	if (*end == 'f' && *(end + 1) == '\0')
 		return (0);
 	return (1);
