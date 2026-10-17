@@ -6,7 +6,7 @@
 /*   By: hnemmass <hnemmass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 21:54:11 by hnemmass          #+#    #+#             */
-/*   Updated: 2026/05/14 15:44:05 by hnemmass         ###   ########.fr       */
+/*   Updated: 2026/10/17 11:46:38 by hnemmass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ void print_double(const std::string &s)
 	char *end;
 	double d = std::strtod(s.c_str(), &end);
 
-	if (d >= 32 && d <= 126)
+	if ((d >= 32 && d <= 126) && !check_int(s))
 		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
 	else if ((d >= 0 && d <= 31) || (d >= 127 && d <= 255))
 		std::cout << "char: Non displayable" << std::endl;
@@ -163,7 +163,7 @@ void print_float(const std::string &s)
 	char *end;
 	double d = std::strtod(s.c_str(), &end);
 	
-	if (d >= 32 && d <= 126)
+	if ((d >= 32 && d <= 126) && !check_int(s))
 		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
 	else if ((d >= 0 && d <= 31) || (d >= 127 && d <= 255))
 		std::cout << "char: Non displayable" << std::endl;
