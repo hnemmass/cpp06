@@ -6,7 +6,7 @@
 /*   By: hnemmass <hnemmass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 21:54:11 by hnemmass          #+#    #+#             */
-/*   Updated: 2026/10/17 11:46:38 by hnemmass         ###   ########.fr       */
+/*   Updated: 2026/10/17 12:20:51 by hnemmass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,8 @@ int check_float(const std::string &s)
 	
 	if (ss == "f")
 		return (1);
-	if (*end == 'f' && *(end + 1) == '\0')
+	if (*end == 'f' && *(end + 1) == '\0' 
+		&& end != ss.c_str() && ss.find('.') != std::string::npos)
 		return (0);
 	return (1);
 }
@@ -112,7 +113,7 @@ void print_char(const std::string &s)
 	else
 		std::cout << "char: Non displayable" << std::endl; 
 	std::cout << "int: " << static_cast<int>(s[1]) << std::endl;
-	std::cout << "float: " << static_cast<float>(s[1]) << std::endl;
+	std::cout << "float: " << static_cast<float>(s[1]) << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(s[1]) << std::endl;
 }
 
@@ -138,7 +139,7 @@ void print_double(const std::string &s)
 	char *end;
 	double d = std::strtod(s.c_str(), &end);
 
-	if ((d >= 32 && d <= 126) && !check_int(s))
+	if ((d >= 32 && d <= 126))
 		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
 	else if ((d >= 0 && d <= 31) || (d >= 127 && d <= 255))
 		std::cout << "char: Non displayable" << std::endl;
@@ -163,7 +164,7 @@ void print_float(const std::string &s)
 	char *end;
 	double d = std::strtod(s.c_str(), &end);
 	
-	if ((d >= 32 && d <= 126) && !check_int(s))
+	if ((d >= 32 && d <= 126))
 		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
 	else if ((d >= 0 && d <= 31) || (d >= 127 && d <= 255))
 		std::cout << "char: Non displayable" << std::endl;
